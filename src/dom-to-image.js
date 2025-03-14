@@ -236,10 +236,10 @@
 
                     function copyProperties(source, target) {
                         util.asArray(source).forEach(function (name) {
-                            let value = sourceStyle.getPropertyValue(name)
+                            let value = source.getPropertyValue(name)
                     
-                            if (name === 'd' && clonedNode.getAttribute('d')) {
-                              value = `path(${clonedNode.getAttribute('d')})`
+                            if (name === 'd' && clone.getAttribute('d')) {
+                              value = `path(${clone.getAttribute('d')})`
                             }
                     
                             target.setProperty(
