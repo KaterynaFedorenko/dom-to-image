@@ -236,9 +236,15 @@
 
                     function copyProperties(source, target) {
                         util.asArray(source).forEach(function (name) {
+                            let value = source.getPropertyValue(name)
+                    
+                            if (name === 'd' && clone.getAttribute('d')) {
+                              value = `path(${clone.getAttribute('d')})`
+                            }
+                    
                             target.setProperty(
                                 name,
-                                source.getPropertyValue(name),
+                                value,
                                 source.getPropertyPriority(name)
                             );
                         });
